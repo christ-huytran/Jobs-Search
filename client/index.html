@@ -2,6 +2,7 @@
 <html ng-app="webCrawler">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Web Crawler</title>
 
 	<!-- CSS -->
@@ -21,7 +22,9 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div ng-view=""></div>
+			<div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+				<div ng-view=""></div>
+			</div>
 		</div>
 	</div>
 </body>
