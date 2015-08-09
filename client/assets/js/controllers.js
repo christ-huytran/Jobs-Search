@@ -6,10 +6,15 @@ crawlerModule.controller('mainController', function() {
 crawlerModule.controller('jobsController', function (jobsFactory) {
 	var self = this;
 
-	this.search = function(searchTerms) {
-		console.log(searchTerms);
-		jobsFactory.jobs(searchTerms, function() {
-
+	this.search = function() {
+		jobsFactory.jobs(self.searchTerms, function (data) {
+			if (typeof data == 'string') {
+				self.error = data;
+				self.results = [];
+			} else {
+				self.error = '';
+				self.results = data;
+			}
 		})
 		self.searchTerms = null;
 	}

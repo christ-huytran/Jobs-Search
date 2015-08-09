@@ -2,6 +2,7 @@
   "name": "web-crawler",
   "dependencies": {
     "body-parser": "^1.13.3",
-    "express": "^4.13.1"
+    "express": "^4.13.1",
+    "request": "^2.60.0"
   }
 }

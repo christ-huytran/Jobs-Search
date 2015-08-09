@@ -1,8 +1,8 @@
 crawlerModule.factory('jobsFactory', function ($http) {
 	return {
-		jobs: function(searchTerms, callback) {
-			$http.get('/jobs', searchTerms).success(function() {
-				
+		jobs: function(search, callback) {
+			$http.post('/jobs', search).success(function (data) {
+				callback(data);
 			})
 		}
 	}

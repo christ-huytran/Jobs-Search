@@ -1,5 +1,7 @@
+var jobs = require('./../controllers/jobsController.js');
+
 module.exports = function(app) {
-	app.get('/jobs', function (req, res) {
-		
+	app.post('/jobs', function (req, res) {
+		jobs.search(req, res);
 	})
 }
