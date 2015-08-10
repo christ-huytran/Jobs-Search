@@ -7,3 +7,19 @@ crawlerModule.factory('jobsFactory', function ($http) {
 		}
 	}
 })
+
+crawlerModule.factory('sessionsFactory', function ($http) {
+	return {
+		checkSession: function(callback) {
+			$http.get('/sessions').success(function (data) {
+				callback(data);
+			})
+		},
+
+		login: function(user, callback) {
+			$http.post('/sessions', user).success(function() {
+				callback();
+			})
+		}
+	}
+})

@@ -1,6 +1,24 @@
-crawlerModule.controller('mainController', function() {
+crawlerModule.controller('mainController', function ($location, sessionsFactory) {
 	var self = this;
 
+	checkSession();
+
+	function checkSession() {
+		sessionsFactory.checkSession(function (data) {
+			if (data.isAuthenticated == false) {
+				$location.path('/login');
+			} else {
+				self.user = data.user;
+				$location.path('/jobs');
+			}
+		})
+	}
+
+	this.login = function(user) {
+		sessionsFactory.login(user, function() {
+			checkSession();
+		})
+	}
 })
 
 crawlerModule.controller('jobsController', function (jobsFactory) {

@@ -7,5 +7,8 @@ crawlerModule.config(function ($routeProvider) {
 		controller: 'jobsController',
 		controllerAs: 'jobs'
 	})
+	.when('/login', {
+		templateUrl: '/partials/login.html'
+	})
 	.otherwise({ redirectTo: '/jobs' })
 })
